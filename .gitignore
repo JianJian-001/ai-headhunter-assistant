@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.env.local
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+skills/user_uploaded/*
+!skills/user_uploaded/.gitkeep

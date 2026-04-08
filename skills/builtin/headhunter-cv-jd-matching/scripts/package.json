@@ -1,0 +1,16 @@
+{
+    "name": "resume-job-match",
+    "version": "0.0.1",
+    "description": "候选人简历与职位匹配、简历疑点识别、面试辅助问答 - Node.js 版本",
+    "main": "main.js",
+    "scripts": {
+        "postinstall": "npx puppeteer browsers install chrome",
+        "start": "node main.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "openai": "^4.52.0",
+        "puppeteer": "^22.0.0",
+        "uuid": "^9.0.0"
+    }
+}
