@@ -16,13 +16,13 @@ const scenarios = [
   {
     title: '简历匹配 + 推荐理由',
     body: '我有一份候选人简历，帮我匹配最适合的职位，并输出推荐理由和风险提示。',
-    prompt: '/headhunter-cv-jd-matching 请帮我分析这份简历与JD的匹配度',
+    prompt: '/cv-matching 请帮我分析这份简历与 JD 的匹配度',
     gradient: 'linear-gradient(135deg, #FFF2E9 0%, #FFFFFF 100%)',
   },
   {
-    title: '拿到岗位后全网找人',
-    body: '基于岗位要求，合并公开来源、本地资料和平台线索，输出 Top10 候选人及下一步动作。',
-    prompt: '/candidate-sourcing 这是一个 AI 算法负责人岗位，帮我全网找 10 个最合适的候选人',
+    title: '岗位深挖 + 做单秘籍',
+    body: '拿到 JD 后快速拆岗位、看目标公司方向、判断接单策略和建议追问。',
+    prompt: '/search-report 这是一个 AI 算法负责人岗位，帮我输出做单秘籍和寻访策略',
     gradient: 'linear-gradient(135deg, #F4ECFF 0%, #FFFFFF 100%)',
   },
 ]

@@ -1,1 +1,0 @@
-# headhunter-greeting-skill scripts

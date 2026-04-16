@@ -9,11 +9,11 @@ function getDoubaoConfig() {
   const model = process.env.DOUBAO_MODEL?.trim()
 
   if (!apiKey) {
-    throw new Error('缺少豆包配置：DOUBAO_API_KEY')
+    throw new Error('缺少LLM配置：DOUBAO_API_KEY')
   }
 
   if (!model) {
-    throw new Error('缺少豆包配置：DOUBAO_MODEL')
+    throw new Error('缺少LLM配置：DOUBAO_MODEL')
   }
 
   return { apiKey, model, baseURL: DOUBAO_BASE_URL }

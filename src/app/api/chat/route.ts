@@ -312,7 +312,7 @@ export async function POST(request: Request) {
           const errMsg = err instanceof Error ? err.message : '生成回复时出错'
           controller.enqueue(
             encoder.encode(
-              `data: ${JSON.stringify({ content: `\n\n[错误] ${errMsg}\n\n请检查豆包 API 配置（DOUBAO_MODEL、DOUBAO_API_KEY、DOUBAO_BASE_URL）是否正确。` })}\n\n`,
+              `data: ${JSON.stringify({ content: `\n\n[错误] ${errMsg}\n\n请检查LLM API 配置（DOUBAO_MODEL、DOUBAO_API_KEY、DOUBAO_BASE_URL）是否正确。` })}\n\n`,
             ),
           )
           controller.enqueue(encoder.encode('data: [DONE]\n\n'))
@@ -336,7 +336,7 @@ export async function POST(request: Request) {
       start(controller) {
         controller.enqueue(
           encoder.encode(
-            `data: ${JSON.stringify({ content: `[错误] ${errMsg}\n\n请检查豆包 API 配置（DOUBAO_MODEL、DOUBAO_API_KEY、DOUBAO_BASE_URL）是否正确。` })}\n\n`,
+            `data: ${JSON.stringify({ content: `[错误] ${errMsg}\n\n请检查LLM API 配置（DOUBAO_MODEL、DOUBAO_API_KEY、DOUBAO_BASE_URL）是否正确。` })}\n\n`,
           ),
         )
         controller.enqueue(encoder.encode('data: [DONE]\n\n'))

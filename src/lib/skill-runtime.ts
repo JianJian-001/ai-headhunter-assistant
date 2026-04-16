@@ -4,10 +4,10 @@
  */
 
 import { chatCompletion, type ChatMessage } from './doubao'
+import { BUILTIN_SKILL_MAP } from './builtin-skills'
 import * as fs from 'fs/promises'
 import * as path from 'path'
 
-const SKILLS_DIR = path.join(process.cwd(), 'skills', 'builtin')
 const MAX_CONTEXT_FILES = 6
 const MAX_SKILL_MD_LENGTH = 6000
 const MAX_SUPPORTING_FILE_LENGTH = 1800
@@ -34,8 +34,16 @@ async function readSupportingDirectory(skillDir: string, directoryName: string):
   }
 }
 
+function resolveSkillDir(slug: string): string {
+  const builtinDefinition = BUILTIN_SKILL_MAP[slug]
+  if (builtinDefinition?.sourceDir) {
+    return path.join(process.cwd(), builtinDefinition.sourceDir)
+  }
+  return path.join(process.cwd(), 'skills', 'builtin', slug)
+}
+
 export async function loadSkillPromptContext(slug: string): Promise<string | null> {
-  const skillDir = path.join(SKILLS_DIR, slug)
+  const skillDir = resolveSkillDir(slug)
 
   try {
     const skillMd = await fs.readFile(path.join(skillDir, 'SKILL.md'), 'utf-8')
@@ -66,9 +74,8 @@ export async function executeSkill(
   // Check if skill has scripts that need local execution
   const needsLocalExec = [
     'headhunter-find-job',
-    'headhunter-candidate-sourcing',
-    'headhunter-greeting-skill',
-    'headhunter-cv-jd-matching',
+    'headhunter-cv-matching',
+    'headhunter-resume-risk-pro',
   ].includes(slug)
 
   if (needsLocalExec) {
